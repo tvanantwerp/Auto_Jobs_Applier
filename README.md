@@ -119,13 +119,9 @@ Auto_Jobs_Applier_AIHawk steps in as a game-changing solution to these challenge
   - 3.11.9(64b)
   - 3.12.5(64b)
 
-1. **Download and Install Python:**
+1. **Install uv:**
 
-   Ensure you have the last Python version  installed. If not, download and install it from Python's official website. For detailed instructions, refer to the tutorials:
-
-   - [How to Install Python on Windows](https://www.geeksforgeeks.org/how-to-install-python-on-windows/)
-   - [How to Install Python on Linux](https://www.geeksforgeeks.org/how-to-install-python-on-linux/)
-   - [How to Download and Install Python on macOS](https://www.geeksforgeeks.org/how-to-download-and-install-python-latest-version-on-macos-mac-os-x/)
+   This project uses [uv](https://docs.astral.sh/uv/) to manage Python and its packages. uv will download the right version of Python for you. Follow the [uv installation instructions](https://docs.astral.sh/uv/getting-started/installation/) for your system.
 
 2. **Download and Install Google Chrome:**
    - Download and install the latest version of Google Chrome in its default location from the [official website](https://www.google.com/chrome).
@@ -138,26 +134,10 @@ Auto_Jobs_Applier_AIHawk steps in as a game-changing solution to these challenge
    cd Auto_Jobs_Applier_AIHawk
    ```
 
-4. **Activate virtual environment:**
+4. **Install the required packages:**
 
    ```bash
-   python3 -m venv virtual
-   ```
-
-   ```bash
-   source virtual/bin/activate
-   ```
-
-   or for Windows-based machines -
-
-   ```bash
-   .\virtual\Scripts\activate
-   ```
-
-5. **Install the required packages:**
-
-   ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
 
 ## Configuration
@@ -594,21 +574,21 @@ Using this folder as a guide can be particularly helpful for:
   If you don't use the `--resume` option, the bot will automatically generate a unique resume for each application. This feature uses the information from your `plain_text_resume.yaml` file and tailors it to each specific job application, potentially increasing your chances of success by customizing your resume for each position.
 
    ```bash
-   python main.py
+   uv run main.py
    ```
 
 - **Using a Specific Resume:**
   If you want to use a specific PDF resume for all applications, place your resume PDF in the `data_folder` directory and run the bot with the `--resume` option:
 
   ```bash
-  python main.py --resume /path/to/your/resume.pdf
+  uv run main.py --resume /path/to/your/resume.pdf
   ```
 
 - **Using the colled mode:**
   If you want to collect job data only to perform any type of data analytics you can use the bot with the `--collect` option. This will store in output/data.json file all data found from linkedin jobs offers.
 
   ```bash
-  python main.py --collect
+  uv run main.py --collect
   ```
 
 ### Troubleshooting
